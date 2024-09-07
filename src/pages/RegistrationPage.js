@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./RegistrationPage.css";
 import { createProduct } from "../api/api";
 import ItemsPageHeader from "../components/ItemsPageHeader";
-import useFormValidation from "../hooks/useFormValidation";
+import useProductFormValidation from "../hooks/useProductFormValidation";
 
 const INITIAL_VALUES = {
   name: "",
@@ -19,7 +19,7 @@ function RegistrationPage() {
 
   /* 커스텀 훅 호출*/
   const { values, setValues, errors, validate, handleBlur } =
-    useFormValidation(INITIAL_VALUES);
+    useProductFormValidation(INITIAL_VALUES);
 
   const navigate = useNavigate();
 
@@ -123,7 +123,9 @@ function RegistrationPage() {
             <textarea
               id="Input2"
               name="description"
-              className={`RegistrationInput ${errors.description ? "error" : ""}`}
+              className={`RegistrationInput ${
+                errors.description ? "error" : ""
+              }`}
               value={values.description}
               onBlur={handleBlur}
               onChange={handleInputChange}

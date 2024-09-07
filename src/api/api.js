@@ -47,14 +47,14 @@ export async function createProduct(product) {
         headers: {
           "Content-Type": "application/json",
         },
-      },
+      }
     );
     return response.data;
   } catch (error) {
     if (error.response) {
       console.error(
         "상품 생성 실패 - 서버에서 반환한 오류:",
-        error.response.data,
+        error.response.data
       );
     } else {
       console.error("상품 생성 실패 - 네트워크 오류:", error.message);
@@ -66,6 +66,71 @@ export async function createProduct(product) {
 /* 제품 목록을 필터링하는 함수 */
 export function filterProductsByName(products, query) {
   return products.filter((product) =>
-    product.name.toLowerCase().includes(query.toLowerCase()),
+    product.name.toLowerCase().includes(query.toLowerCase())
+  );
+}
+
+/*---------------------게시글 관련 API 호출--------------------*/
+// 게시글 목록 조회
+export const fetchArticles = async (params = {}) => {
+  try {
+    const response = await axios.get(BASE_URL, { params });
+    return response.data;
+  } catch (error) {
+    console.error("게시글 목록 조회 실패:", error);
+    throw error;
+  }
+};
+
+// 게시글 상세 조회
+export const fetchArticleById = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("게시글 상세 조회 실패:", error);
+    throw error;
+  }
+};
+
+// 게시글 등록
+export const createArticle = async (articleData) => {
+  try {
+    const response = await axios.post(BASE_URL, articleData);
+    return response.data;
+  } catch (error) {
+    console.error("게시글 등록 실패:", error);
+    throw error;
+  }
+};
+
+// 게시글 수정
+export const updateArticle = async (id, articleData) => {
+  try {
+    const response = await axios.patch(`${BASE_URL}/${id}`, articleData);
+    return response.data;
+  } catch (error) {
+    console.error("게시글 수정 실패:", error);
+    throw error;
+  }
+};
+
+// 게시글 삭제
+export const deleteArticle = async (id) => {
+  try {
+    const response = await axios.delete(`${BASE_URL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("게시글 삭제 실패:", error);
+    throw error;
+  }
+};
+
+/* 게시글 목록을 필터링하는 함수 */
+export function filterPostsByName(posts, query) {
+  return posts.filter(
+    (post) =>
+      post.title.toLowerCase().includes(query.toLowerCase()) ||
+      post.content.toLowerCase().includes(query.toLowerCase())
   );
 }

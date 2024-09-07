@@ -20,7 +20,9 @@ function ItemsPageHeader() {
       <nav className="nav">
         <ul>
           <li>
-            <a href="#free-board">자유게시판</a>
+            <Link id="free-board" to="/free=board">
+              자유게시판
+            </Link>
           </li>
           <li>
             <Link id="item-page-market" to="/items">

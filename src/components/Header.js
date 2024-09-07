@@ -21,7 +21,9 @@ function Header() {
       <nav className="nav">
         <ul>
           <li>
-            <a href="#free-board">자유게시판</a>
+            <Link href="free-board" to="/free-board">
+              자유게시판
+            </Link>
           </li>
           <li>
             <Link id="ItemPageMarket" to="/items">

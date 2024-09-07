@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import ItemsPage from "./pages/ItemsPage";
 import RegistrationPage from "./pages/RegistrationPage";
+import FreeBoardPage from "./pages/FreeBoardpage";
+import PostRegistrationPage from "./pages/PostRegistrationPage";
 import ProductInformationPage from "./pages/ProductInformationPage"; // 상품 등록버튼 클릭시 이동하는 빈페이지
 
 function App() {
@@ -10,8 +12,13 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
+        <Route path="/free-board" element={<FreeBoardPage />}></Route>
         <Route path="/items" element={<ItemsPage />}></Route>
         <Route path="/registration" element={<RegistrationPage />}></Route>
+        <Route
+          path="/post-registration"
+          element={<PostRegistrationPage />}
+        ></Route>
         <Route
           path="/Productinformation"
           element={<ProductInformationPage />}

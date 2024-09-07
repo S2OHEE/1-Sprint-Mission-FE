@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFormValidation = (initialValues) => {
+export default function useProductFormValidation(initialValues) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({}); // 필드 터치여부
@@ -59,6 +59,4 @@ const useFormValidation = (initialValues) => {
   };
 
   return { values, setValues, errors, validate, handleBlur };
-};
-
-export default useFormValidation;
+}

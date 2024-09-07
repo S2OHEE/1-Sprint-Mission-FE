@@ -59,6 +59,11 @@
   color: #3692ff;
 }
 
+/* 중고마켓 페이지의 상단바 '자유게시판 버튼색'*/
+#free-board {
+  color: #3692ff;
+}
+
 /* 중고마켓 페이지의 로그인 버튼*/
 #LoginButton {
   width: 74px;
